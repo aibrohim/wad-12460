@@ -1,0 +1,105 @@
+<div class="container my-3">
+  <form (submit)="handleFormSubmit()" #form="ngForm" class="w-50 mx-auto">
+    <h1 class="h3">{{ title }}</h1>
+    <div class="mb-3">
+      <label class="form-label w-100">
+        Title
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="BookProps.title"
+          placeholder="Title of book"
+        />
+      </label>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label w-100">
+        ISBN
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ISBN of book"
+          name="isbn"
+          [(ngModel)]="BookProps.isbn"
+        />
+      </label>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label w-100">
+        Pages Count
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Pages count of book"
+          name="totalPages"
+          [(ngModel)]="BookProps.totalPages"
+        />
+      </label>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label w-100">
+        Price
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Price of book"
+          name="price"
+          [(ngModel)]="BookProps.price"
+        />
+      </label>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        name="isOnStock"
+        [(ngModel)]="BookProps.isOnStock"
+      />
+      <label class="form-check-label"> Is On Stock </label>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label w-100">
+        Published date
+        <input
+          type="date"
+          class="form-control"
+          placeholder="Published date of book"
+          name="publishedDate"
+          [(ngModel)]="BookProps.publishedDate"
+        />
+      </label>
+    </div>
+
+    <div class="mb-3">
+      <label for="publisher" class="form-label w-100">
+        Publisher
+        <select
+          class="form-select"
+          id="publisher"
+          aria-label="Default select example"
+          name="publisherId"
+          [(ngModel)]="BookProps.publisherId"
+        >
+          <option value="0" selected disabled>
+            Please, select a publisher
+          </option>
+          <option
+            *ngFor="let publisher of publishers"
+            value="{{ publisher.id }}"
+          >
+            {{ publisher.name }}
+          </option>
+        </select>
+      </label>
+    </div>
+    <div class="d-flex justify-content-end">
+      <ng-content></ng-content>
+    </div>
+  </form>
+</div>

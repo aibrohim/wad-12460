@@ -1,0 +1,25 @@
+<div class="container my-3">
+  <div class="d-flex justify-content-between">
+    <h1 class="h3">Authors</h1>
+    <a routerLink="/add-author">Add Author</a>
+  </div>
+  <table *ngIf="authors.length" class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <td>{{ author.authorId }}</td>
+        <td>
+          <a routerLink="/edit-author/{{ author.authorId }}"
+            >{{ author.firstName }} {{ author.lastName }}</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!authors.length">Authors list is empty</p>
+</div>

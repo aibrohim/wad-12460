@@ -1,0 +1,29 @@
+<div class="container my-3">
+  <div class="d-flex justify-content-between">
+    <h1 class="h3">Books</h1>
+    <a routerLink="/add-book">Add Book</a>
+  </div>
+  <table *ngIf="books.length" class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Pages Count</th>
+        <th>Publisher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.bookId }}</td>
+        <td>
+          <a routerLink="/book/{{ book.bookId }}">{{ book.title }}</a>
+        </td>
+        <td>${{ book.price }}</td>
+        <td>{{ book.totalPages }}</td>
+        <td>{{ book.publisher?.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!books.length">Books list is empty</p>
+</div>

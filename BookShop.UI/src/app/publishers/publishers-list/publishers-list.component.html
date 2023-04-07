@@ -1,0 +1,25 @@
+<div class="container my-3">
+  <div class="d-flex justify-content-between">
+    <h1 class="h3">Publishers</h1>
+    <a routerLink="/add-publisher">Add Publisher</a>
+  </div>
+  <table *ngIf="publishers.length" class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let publisher of publishers">
+        <td>{{ publisher.id }}</td>
+        <td>
+          <a routerLink="/edit-publisher/{{ publisher.id }}">{{
+            publisher.name
+          }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!publishers.length">Publishers list is empty</p>
+</div>

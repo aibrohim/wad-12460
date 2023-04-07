@@ -1,0 +1,19 @@
+<form
+  (submit)="handleFormSubmit($event)"
+  class="d-flex align-items-center grow-1"
+>
+  <select
+    class="form-select form-select-sm me-2"
+    name="selectedAuthor"
+    [(ngModel)]="selectedAuthor"
+  >
+    <option
+      *ngFor="let author of notSelectedAuthors"
+      value="{{ author.authorId }}"
+    >
+      {{ author.firstName }}
+      {{ author.lastName }}
+    </option>
+  </select>
+  <button class="btn btn-primary btn-sm text-nowrap">Attach Author</button>
+</form>
